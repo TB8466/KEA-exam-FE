@@ -2,18 +2,21 @@
     <div class="border-2 py-10 px-20 h-fit" :class="{'blur' : okMsg}">
       <img class="m-auto w-80" src="../assets/img/VIASOL_LOGO.png" alt="Logo missing">
       <h2 class="text-xl font-semibold">Velkommen til Viasol support</h2>
-
       <p>For at oprette en support henvendelse, venligst udfyld telefonnummer og find dig selv på listen:</p>
+
       <label for="phone">Telefonnummer:</label>
-      <input :disabled="okMsg" v-model="input" @input="findCustomer(this.input), resetSearch(this.input)" class="border ml-2" type="text" name="phone" id="phone">
-      <br>
-      <br>
+      <input :disabled="okMsg" v-model="input" @input="findCustomer(this.input), resetSearch(this.input)" class="border ml-2" type="text" id="phone">
+      
+      <br><br>
+
       <select :disabled="okMsg" @change="findDeals(custID)" v-if="input" v-model="custID" class="h-10 border">
         <option v-for="contact in contacts" :key="contact.id" :value="contact.id">{{ contact.properties.firstname }} {{ contact.properties.lastname }}</option>
       </select>
       <br>
       <p v-if="custID && input">Dit kundenr er : {{ custID }}</p>
+      
       <br>
+
       <p v-if="custID && input">Vælg hvilken sag der drejer sig om:</p>
       <select :disabled="okMsg" v-if="custID && input" v-model="dealID" class="h-10 border">
         <option v-for="deal,index in deals" :key="index" :value="deal.id">Sagsnr : {{ deal.id }}</option>
@@ -54,12 +57,13 @@
 
 <script>
 export default {
-    data() {
+  data() {
     return {
       input : "",
+      
       contacts : [],
-      deals : [],
       custID : "",
+      deals : [],
       dealID : "",
 
       ticketName : "",
@@ -80,14 +84,12 @@ export default {
       }
     },
     findCustomer(number){
-      console.log("Number send");
       fetch(`http://localhost:5000/contacts/${number}`)
       .then(res => res.json())
       .then(data => this.contacts = data)
       .catch(err => console.log(err.message))
     },
     findDeals(contactId){
-      console.log("contactId send");
       fetch(`http://localhost:5000/deals/${contactId}`)
       .then(res => res.json())
       .then(data => this.deals = data.results[0].to)
