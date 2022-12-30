@@ -66,7 +66,7 @@ export default {
       deals : [],
       dealID : "",
 
-      ticketName : "",
+      ticketName : "Solcelleanlæg",
       serialNumber : "",
       description : "",
       date : "",
