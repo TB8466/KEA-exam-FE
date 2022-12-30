@@ -19,7 +19,7 @@
 
       <p v-if="custID && input">Vælg hvilken sag der drejer sig om:</p>
       <select :disabled="okMsg" v-if="custID && input" v-model="dealID" class="h-10 border">
-        <option v-for="deal,index in deals" :key="index" :value="deal.id">Sagsnr : {{ deal.id }}</option>
+        <option v-for="deal in deals" :key="deal.id" :value="deal.id">Sagsnr : {{ deal.id }}</option>
       </select>
 
       <div v-if="dealID && input">
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       input : "",
-      
+
       contacts : [],
       custID : "",
       deals : [],
