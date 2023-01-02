@@ -1,4 +1,4 @@
-#Final exam project for KEA's Computer Science. Starting year: summer 2020. Graduation year: winter 2023.
+# Final exam project for KEA's Computer Science. Starting year: summer 2020. Graduation year: winter 2023.
 
 ## This is the frontend part of the project.
 
