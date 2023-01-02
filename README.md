@@ -1,6 +1,8 @@
-# exam-fe
+#Final exam project for KEA's Computer Science. Starting year: summer 2020. Graduation year: winter 2023.
 
-This template should help get you started developing with Vue 3 in Vite.
+## This is the frontend part of the project.
+
+### Created by Karl Tobias Nymann Andersen & Thorbjørn Bros Pedersen
 
 ## Recommended IDE Setup
 
